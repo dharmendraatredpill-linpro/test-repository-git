@@ -1,0 +1,98 @@
+<alfresco-config>
+	<config>
+		<forms>
+			<dependencies>
+				<js src="/js/dr-form-field-validation-handler.js" />
+			</dependencies>
+		</forms>
+	</config>
+	<config evaluator="model-type" condition="dr:customerFolder">
+		<forms>
+			<form>
+				<field-visibility>
+					<show id="cm:name" />
+					<show id="dr:nameOfCustomer" force="true" />
+					<show id="dr:customerNumber" force="true" />
+					<show id="dr:region" force="true" />
+				</field-visibility>
+				<appearance>
+					<field id="cm:name" label-id="custom-folder.name.label" />
+					<field id="dr:nameOfCustomer" help-id="dr.nameOfCustomer.help"/>
+					<field id="dr:customerNumber" help-id="dr.customerNumber.help" />
+					<field id="dr:region" help-id="dr.region.help"/>
+				</appearance>
+			</form>
+		</forms>
+	</config>
+	
+	<config evaluator="model-type" condition="dr:projectFolder">
+		<forms>
+			<form>
+				<field-visibility>
+					<show id="cm:name" />
+					<show id="dr:projectNumber" force="true" />
+					<show id="dr:projectName" force="true" />
+				</field-visibility>
+				<appearance>
+					<field id="cm:name" label-id="custom-folder.name.label" />
+					<field id="dr:projectNumber" help-id="dr.projectNumber.help">
+						<constraint-handlers>
+							<constraint type="MANDATORY"
+								validation-handler="Alfresco.forms.validation.projectNumber"
+								event="keyup" />
+						</constraint-handlers>
+					</field>
+					<field id="dr:projectName" help-id="dr.projectName.help">
+						<constraint-handlers>
+							<constraint type="MANDATORY"
+								validation-handler="Alfresco.forms.validation.projectName"
+								event="keyup" />
+						</constraint-handlers>
+					</field>
+				</appearance>
+			</form>
+		</forms>
+	</config>
+	<config evaluator="model-type" condition="dr:opportunityFolder">
+		<forms>
+			<form>
+				<field-visibility>
+					<show id="cm:name" />
+					<show id="dr:opportunityID" force="true" />
+					<show id="dr:opportunityName" force="true" />
+				</field-visibility>
+				<appearance>
+					<field id="cm:name" label-id="custom-folder.name.label" />
+					<field id="dr:opportunityID" help-id="dr.opportunityID.help" />
+					<field id="dr:opportunityName" help-id="dr.opportunityName.help" />
+				</appearance>
+			</form>
+		</forms>
+	</config>
+	<config evaluator="model-type" condition="dr:projectEstimationFolder">
+		<forms>
+			<form>
+				<field-visibility>
+					<show id="cm:name" />
+				</field-visibility>
+				<appearance>
+					<field id="cm:name" label-id="custom-folder.name.label" />
+				</appearance>
+			</form>
+		</forms>
+	</config>
+	<config evaluator="model-type" condition="dr:navigationBoardFolder">
+		<forms>
+			<form>
+				<field-visibility>
+					<show id="cm:name" />
+					<show id="dr:endCustomer" force="true" />
+				</field-visibility>
+				<appearance>
+					<field id="cm:name" label-id="custom-folder.name.label" />
+					<field id="dr:endCustomer" help-id="dr.endCustomer.help"/>
+				</appearance>
+			</form>
+		</forms>
+	</config>
+</alfresco-config>

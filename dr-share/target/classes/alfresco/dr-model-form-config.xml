@@ -1,0 +1,433 @@
+<alfresco-config>
+    <config>
+        <forms>
+            <dependencies>
+                <js src="/js/dr-form-field-validation-handler.js" />
+            </dependencies>
+        </forms>
+    </config>
+     <config evaluator="model-type" condition="dr:drBaseContent">
+        <forms>
+            <form>
+                <field-visibility>
+                    <show id="cm:name" />
+                    <show id="cm:title" force="true" />
+                    <show id="cm:description" force="true" />
+                    <hide id="dr:documentId" force="true" />
+                    <hide id="dr:wf" force="true" />
+                    <show id="dr:wfStatus" force="true" />
+                    <show id="dr:documentStatus" force="true" />
+                    <show id="dr:secClassification" force="true" />
+                    <show id="dr:generalDocumentSubType" force="true" />
+                    <show id="rplpdt:template" force="true" />
+                </field-visibility>
+                <appearance>
+                    <set id="common" appearance="fieldset" label-id="dr.set.common" />
+                    <set id="specifics" appearance="fieldset" label-id="dr.set.general.document.metadata" />
+                    <field id="cm:name" set="common" />
+                    <field id="cm:title" set="common" />
+                    <field id="cm:description" set="common" />
+                    <field id="dr:documentId" set="common" read-only="true" />
+                    <field id="dr:wf" set="common" read-only="true" />
+                    <field id="dr:wfStatus" set="common" read-only="true" />
+                    <field id="dr:documentStatus" set="common" help-id="dr.documentStatus.help" />
+                    <field id="dr:secClassification" set="common" help-id="dr.secClassification.help" />
+                    <field id="dr:generalDocumentSubType" set="specifics" />
+                    <field id="rplpdt:template" mandatory="true" set="specifics">
+                        <control template="/org/redpill_linpro/alfresco/share/components/form/controls/documenttemplate.ftl" />
+                    </field>
+                </appearance>
+            </form>
+        </forms>
+    </config>
+    <config evaluator="model-type" condition="dr:generalDocument">
+        <forms>
+            <form>
+                <field-visibility>
+                    <show id="cm:name" />
+                    <show id="cm:title" force="true" />
+                    <show id="cm:description" force="true" />
+                    <hide id="dr:documentId" force="true" />
+                    <hide id="dr:wf" force="true" />
+                    <show id="dr:wfStatus" force="true" />
+                    <show id="dr:documentStatus" force="true" />
+                    <show id="dr:secClassification" force="true" />
+                    <show id="dr:generalDocumentSubType" force="true" />
+                    <show id="rplpdt:template" force="true" />
+                </field-visibility>
+                <appearance>
+                    <set id="common" appearance="fieldset" label-id="dr.set.common" />
+                    <set id="specifics" appearance="fieldset" label-id="dr.set.general.document.metadata" />
+                    <field id="cm:name" set="common" />
+                    <field id="cm:title" set="common" />
+                    <field id="cm:description" set="common" />
+                    <field id="dr:documentId" set="common" read-only="true" />
+                    <field id="dr:wf" set="common" read-only="true" />
+                    <field id="dr:wfStatus" set="common" read-only="true" />
+                    <field id="dr:documentStatus" set="common" help-id="dr.documentStatus.help" />
+                    <field id="dr:secClassification" set="common" help-id="dr.secClassification.help" />
+                    <field id="dr:generalDocumentSubType" set="specifics" />
+                    <field id="rplpdt:template" mandatory="true" set="specifics">
+                        <control template="/org/redpill_linpro/alfresco/share/components/form/controls/documenttemplate.ftl" />
+                    </field>
+                </appearance>
+            </form>
+        </forms>
+    </config>
+    <config evaluator="model-type" condition="dr:customerAgreement">
+        <forms>
+            <form>
+                <field-visibility>
+                    <show id="cm:name" />
+                    <show id="cm:title" force="true" />
+                    <show id="cm:description" force="true" />
+                    <hide id="dr:documentId" force="true" />
+                    <hide id="dr:wf" force="true" />
+                    <show id="dr:wfStatus" force="true" />
+                    <show id="dr:documentStatus" force="true" />
+                    <show id="dr:secClassification" force="true" />
+                    <show id="dr:noticeDate" force="true" />
+                    <show id="dr:totalInsuranceLiability" force="true" />
+                    <show id="dr:governingLaw" force="true" />
+                    <show id="dr:customerAgreementSubType" force="true" />
+                    <show id="dr:endCustomer" force="true" />
+                    <show id="dr:validFrom" force="true" />
+                    <show id="dr:terminationDate" force="true" />
+                    <show id="dr:signed" force="true" />
+                    <show id="rplpdt:template" force="true" />
+                </field-visibility>
+                <appearance>
+                    <set id="common" appearance="fieldset" label-id="dr.set.common" />
+                    <set id="specifics" appearance="fieldset" label-id="dr.set.customer.agreement.metadata" />
+                    <field id="cm:name" set="common" />
+                    <field id="cm:title" set="common" />
+                    <field id="cm:description" set="common" />
+                    <field id="dr:documentId" set="common" read-only="true" />
+                    <field id="dr:wf" set="common" read-only="true" />
+                    <field id="dr:wfStatus" set="common" read-only="true" />
+                    <field id="dr:documentStatus" set="common" help-id="dr.documentStatus.help" />
+                    <field id="dr:secClassification" set="common" help-id="dr.secClassification.help" />
+                    <field id="dr:noticeDate" set="specifics" help-id="dr.noticeDate.help">
+                       <control template="/org/redpill_linpro/alfresco/share/components/form/controls/customdate.ftl" />
+					</field>
+                    <field id="dr:totalInsuranceLiability" set="specifics"   help-id="dr.totalInsuranceLiability.help"/>
+                    <field id="dr:governingLaw" set="specifics"   help-id="dr.governingLaw.help"/>
+                    <field id="dr:customerAgreementSubType" set="specifics" />
+                    <field id="dr:endCustomer" set="specifics" help-id="dr.endCustomer.help" />
+                    <field id="dr:validFrom" set="specifics" help-id="dr.validFrom.help">
+                       <control template="/org/redpill_linpro/alfresco/share/components/form/controls/customdate.ftl" />
+					</field>
+                    <field id="dr:terminationDate" set="specifics" help-id="dr.terminationDate.help">
+                       <control template="/org/redpill_linpro/alfresco/share/components/form/controls/customdate.ftl" />
+					</field>
+                    <field id="dr:signed" set="specifics" help-id="dr.signed.help" />
+                    <field id="rplpdt:template" mandatory="true" set="specifics">
+                        <control template="/org/redpill_linpro/alfresco/share/components/form/controls/documenttemplate.ftl" />
+                    </field>
+                </appearance>
+            </form>
+        </forms>
+    </config>
+    <config evaluator="model-type" condition="dr:companyInformation">
+        <forms>
+            <!-- Default Create Content form -->
+            <form>
+                <field-visibility>
+                    <show id="cm:name" />
+                    <show id="cm:title" force="true" />
+                    <show id="cm:description" force="true" />
+                    <hide id="dr:documentId" force="true" />
+                    <hide id="dr:wf" force="true" />
+                    <show id="dr:wfStatus" force="true" />
+                    <show id="dr:documentStatus" force="true" />
+                    <show id="dr:secClassification" force="true" />
+                    <show id="rplpdt:template" force="true" />
+                </field-visibility>
+                <appearance>
+                    <set id="common" appearance="fieldset" label-id="dr.set.common" />
+                    <set id="specifics" appearance="fieldset" label-id="dr.set.company.information.metadata" />
+                    <field id="cm:name" set="common" />
+                    <field id="cm:title" set="common" />
+                    <field id="cm:description" set="common" />
+                    <field id="dr:documentId" set="common" read-only="true" />
+                    <field id="dr:wf" set="common" read-only="true" />
+                    <field id="dr:wfStatus" set="common" read-only="true" />
+                    <field id="dr:documentStatus" set="common" help-id="dr.documentStatus.help" />
+                    <field id="dr:secClassification" set="common" help-id="dr.secClassification.help" />
+                    <field id="rplpdt:template" mandatory="true" set="common">
+                        <control template="/org/redpill_linpro/alfresco/share/components/form/controls/documenttemplate.ftl" />
+                    </field>
+                </appearance>
+            </form>
+        </forms>
+    </config>
+    <config evaluator="model-type" condition="dr:navigationBoard">
+        <forms>
+            <!-- Default Create Content form -->
+            <form>
+                <field-visibility>
+                    <show id="cm:name" />
+                    <show id="cm:title" force="true" />
+                    <show id="cm:description" force="true" />
+                    <hide id="dr:documentId" force="true" />
+                    <hide id="dr:wf" force="true" />
+                    <show id="dr:wfStatus" force="true" />
+                    <show id="dr:documentStatus" force="true" />
+                    <show id="dr:secClassification" force="true" />
+                    <show id="dr:navigationBoardSubType" force="true" />
+                    <show id="dr:endCustomer" force="true" />
+                    <show id="rplpdt:template" force="true" />
+                </field-visibility>
+                <appearance>
+                    <set id="common" appearance="fieldset" label-id="dr.set.common" />
+                    <set id="specifics" appearance="fieldset" label-id="dr.set.navigation.board.metadata" />
+                    <field id="cm:name" set="common" />
+                    <field id="cm:title" set="common" />
+                    <field id="cm:description" set="common" />
+                    <field id="dr:documentId" set="common" read-only="true" />
+                    <field id="dr:wf" set="common" read-only="true" />
+                    <field id="dr:wfStatus" set="common" read-only="true" />
+                    <field id="dr:documentStatus" set="common" help-id="dr.documentStatus.help" />
+                    <field id="dr:secClassification" set="common" help-id="dr.secClassification.help" />
+                    <field id="dr:endCustomer" set="specifics" help-id="dr.endCustomer.help" />
+                    <field id="dr:navigationBoardSubType" set="specifics" />
+                    <field id="rplpdt:template" mandatory="true" set="specifics">
+                        <control template="/org/redpill_linpro/alfresco/share/components/form/controls/documenttemplate.ftl" />
+                    </field>
+                </appearance>
+            </form>
+        </forms>
+    </config>
+    <config evaluator="model-type" condition="dr:mzDocumentation">
+        <forms>
+            <!-- Default Create Content form -->
+            <form>
+                <field-visibility>
+                    <show id="cm:name" />
+                    <show id="cm:title" force="true" />
+                    <show id="cm:description" force="true" />
+                    <hide id="dr:documentId" force="true" />
+                    <hide id="dr:wf" force="true" />
+                    <show id="dr:wfStatus" force="true" />
+                    <show id="dr:documentStatus" force="true" />
+                    <show id="dr:secClassification" force="true" />
+                    <show id="dr:mzDocumentationSubType" force="true" />
+                    <show id="dr:softwareName" force="true" />
+                    <show id="dr:releaseVersion" force="true" />
+                    <show id="rplpdt:template" force="true" />
+                </field-visibility>
+                <appearance>
+                    <set id="common" appearance="fieldset" label-id="dr.set.common" />
+                    <set id="specifics" appearance="fieldset" label-id="dr.set.mzdocumentation.metadata" />
+                    <field id="cm:name" set="common" />
+                    <field id="cm:title" set="common" />
+                    <field id="cm:description" set="common" />
+                    <field id="dr:documentId" set="common" read-only="true" />
+                    <field id="dr:wf" set="common" read-only="true" />
+                    <field id="dr:wfStatus" set="common" read-only="true" />
+                    <field id="dr:documentStatus" set="common" help-id="dr.documentStatus.help" />
+                    <field id="dr:secClassification" set="common" help-id="dr.secClassification.help" />
+                    <field id="dr:mzDocumentationSubType" set="specifics" />
+                    <field id="dr:softwareName" set="specifics" help-id="dr.softwareName.help" />
+                    <field id="dr:releaseVersion" set="specifics" help-id="dr.releaseVersion.help" />
+                    <field id="rplpdt:template" mandatory="true" set="specifics">
+                        <control template="/org/redpill_linpro/alfresco/share/components/form/controls/documenttemplate.ftl" />
+                    </field>
+                </appearance>
+            </form>
+        </forms>
+    </config>
+    <config evaluator="model-type" condition="dr:proposal">
+        <forms>
+            <!-- Default Create Content form -->
+            <form>
+                <field-visibility>
+                    <show id="cm:name" />
+                    <show id="cm:title" force="true" />
+                    <show id="cm:description" force="true" />
+                    <hide id="dr:documentId" force="true" />
+                    <hide id="dr:wf" force="true" />
+                    <show id="dr:wfStatus" force="true" />
+                    <show id="dr:documentStatus" force="true" />
+                    <show id="dr:secClassification" force="true" />
+                    <show id="dr:endCustomer" force="true" />
+                    <show id="dr:validFrom" force="true" />
+                    <show id="dr:terminationDate" force="true" />
+                    <show id="dr:signed" force="true" />
+                    <show id="rplpdt:template" force="true" />
+                </field-visibility>
+                <appearance>
+                    <set id="common" appearance="fieldset" label-id="dr.set.common" />
+                    <set id="specifics" appearance="fieldset" label-id="dr.set.proposal.metadata" />
+                    <field id="cm:name" set="common" />
+                    <field id="cm:title" set="common" />
+                    <field id="cm:description" set="common" />
+                    <field id="dr:documentId" set="common" read-only="true" />
+                    <field id="dr:wf" set="common" read-only="true" />
+                    <field id="dr:wfStatus" set="common" read-only="true" />
+                    <field id="dr:documentStatus" set="common" help-id="dr.documentStatus.help" />
+                    <field id="dr:secClassification" set="common" help-id="dr.secClassification.help" />
+                    <field id="dr:endCustomer" set="specifics" help-id="dr.endCustomer.help" />
+                    <field id="dr:validFrom" set="specifics" help-id="dr.validFrom.help" >
+                    	<control template="/org/redpill_linpro/alfresco/share/components/form/controls/customdate.ftl" />
+                    </field>
+                    <field id="dr:terminationDate" set="specifics" help-id="dr.terminationDate.help">
+                    <control template="/org/redpill_linpro/alfresco/share/components/form/controls/customdate.ftl" />
+					</field>
+                    <field id="dr:signed" set="specifics" help-id="dr.signed.help" />
+                    <field id="rplpdt:template" mandatory="true" set="specifics">
+                        <control template="/org/redpill_linpro/alfresco/share/components/form/controls/documenttemplate.ftl" />
+                    </field>
+                </appearance>
+            </form>
+        </forms>
+    </config>
+    <config evaluator="model-type" condition="dr:purchaseOrder">
+        <forms>
+            <!-- Default Create Content form -->
+            <form>
+                <field-visibility>
+                    <show id="cm:name" />
+                    <show id="cm:title" force="true" />
+                    <show id="cm:description" force="true" />
+                    <hide id="dr:documentId" force="true" />
+                    <hide id="dr:wf" force="true" />
+                    <show id="dr:wfStatus" force="true" />
+                    <show id="dr:documentStatus" force="true" />
+                    <show id="dr:secClassification" force="true" />
+                    <show id="dr:poNumber" force="true" />
+                    <show id="dr:endCustomer" force="true" />
+                    <show id="rplpdt:template" force="true" />
+                </field-visibility>
+                <appearance>
+                    <set id="common" appearance="fieldset" label-id="dr.set.common" />
+                    <set id="specifics" appearance="fieldset" label-id="dr.set.purchase.order.metadata" />
+                    <field id="cm:name" set="common" />
+                    <field id="cm:title" set="common" />
+                    <field id="cm:description" set="common" />
+                    <field id="dr:documentId" set="common" read-only="true" />
+                    <field id="dr:wf" set="common" read-only="true" />
+                    <field id="dr:wfStatus" set="common" read-only="true" />
+                    <field id="dr:documentStatus" set="common" help-id="dr.documentStatus.help" />
+                    <field id="dr:secClassification" set="common" help-id="dr.secClassification.help" />
+                    <field id="dr:poNumber" set="specifics" help-id="dr.poNumber.help" mandatory="true">
+                        <constraint-handlers>
+                            <constraint type="MANDATORY" validation-handler="Alfresco.forms.validation.poNumber" event="keyup" />
+                        </constraint-handlers>
+                    </field>
+                    <field id="dr:endCustomer" set="specifics" help-id="dr.endCustomer.help" />
+                    <field id="rplpdt:template" mandatory="true" set="specifics">
+                        <control template="/org/redpill_linpro/alfresco/share/components/form/controls/documenttemplate.ftl" />
+                    </field>
+                </appearance>
+            </form>
+        </forms>
+    </config>
+    <config evaluator="model-type" condition="dr:RFX">
+        <forms>
+            <!-- Default Create Content form -->
+            <form>
+                <field-visibility>
+                    <show id="cm:name" />
+                    <show id="cm:title" force="true" />
+                    <show id="cm:description" force="true" />
+                    <hide id="dr:documentId" force="true" />
+                    <hide id="dr:wf" force="true" />
+                    <show id="dr:wfStatus" force="true" />
+                    <show id="dr:documentStatus" force="true" />
+                    <show id="dr:secClassification" force="true" />
+                    <show id="rplpdt:template" force="true" />
+                </field-visibility>
+                <appearance>
+                    <set id="common" appearance="fieldset" label-id="dr.set.common" />
+                    <set id="specifics" appearance="fieldset" label-id="dr.set.rfx.metadata" />
+                    <field id="cm:name" set="common" />
+                    <field id="cm:title" set="common" />
+                    <field id="cm:description" set="common" />
+                    <field id="dr:documentId" set="common" read-only="true" />
+                    <field id="dr:wf" set="common" read-only="true" />
+                    <field id="dr:wfStatus" set="common" read-only="true" />
+                    <field id="dr:documentStatus" set="common" help-id="dr.documentStatus.help" />
+                    <field id="dr:secClassification" set="common" help-id="dr.secClassification.help" />
+                    <field id="rplpdt:template" mandatory="true" set="common">
+                        <control template="/org/redpill_linpro/alfresco/share/components/form/controls/documenttemplate.ftl" />
+                    </field>
+                </appearance>
+            </form>
+        </forms>
+    </config>
+    <config evaluator="model-type" condition="dr:SDR">
+        <forms>
+            <!-- Default Create Content form -->
+            <form>
+                <field-visibility>
+                    <show id="cm:name" />
+                    <show id="cm:title" force="true" />
+                    <show id="cm:description" force="true" />
+                    <hide id="dr:documentId" force="true" />
+                    <hide id="dr:wf" force="true" />
+                    <show id="dr:wfStatus" force="true" />
+                    <show id="dr:documentStatus" force="true" />
+                    <show id="dr:secClassification" force="true" />
+                    <show id="dr:endCustomer" force="true" />
+                    <show id="dr:softwareName" force="true" />
+                    <show id="dr:releaseVersion" force="true" />
+                    <show id="rplpdt:template" force="true" />
+                </field-visibility>
+                <appearance>
+                    <set id="common" appearance="fieldset" label-id="dr.set.common" />
+                    <set id="specifics" appearance="fieldset" label-id="dr.set.sdr.metadata" />
+                    <field id="cm:name" set="common" />
+                    <field id="cm:title" set="common" />
+                    <field id="cm:description" set="common" />
+                    <field id="dr:documentId" set="common" read-only="true" />
+                    <field id="dr:wf" set="common" read-only="true" />
+                    <field id="dr:wfStatus" set="common" read-only="true" />
+                    <field id="dr:documentStatus" set="common" help-id="dr.documentStatus.help" />
+                    <field id="dr:secClassification" set="common" help-id="dr.secClassification.help" />
+                    <field id="dr:endCustomer" set="specifics" help-id="dr.endCustomer.help" />
+                    <field id="dr:softwareName" set="specifics" help-id="dr.softwareName.help" />
+                    <field id="dr:releaseVersion" set="specifics" help-id="dr.releaseVersion.help" />
+                    <field id="rplpdt:template" mandatory="true" set="specifics">
+                        <control template="/org/redpill_linpro/alfresco/share/components/form/controls/documenttemplate.ftl" />
+                    </field>
+                </appearance>
+            </form>
+        </forms>
+    </config>
+    <config evaluator="model-type" condition="dr:archive">
+        <forms>
+            <!-- Default Create Content form -->
+            <form>
+                <field-visibility>
+                    <show id="cm:name" />
+                    <show id="cm:title" force="true" />
+                    <show id="cm:description" force="true" />
+                    <hide id="dr:documentId" force="true" />
+                    <hide id="dr:wf" force="true" />
+                    <show id="dr:wfStatus" force="true" />
+                    <show id="dr:documentStatus" force="true" />
+                    <show id="dr:secClassification" force="true" />
+                    <show id="dr:archiveSubType" force="true" />
+                    <show id="rplpdt:template" force="true" />
+                </field-visibility>
+                <appearance>
+                    <set id="common" appearance="fieldset" label-id="dr.set.common" />
+                    <set id="specifics" appearance="fieldset" label-id="dr.set.archive.metadata" />
+                    <field id="cm:name" set="common" />
+                    <field id="cm:title" set="common" />
+                    <field id="cm:description" set="common" />
+                    <field id="dr:documentId" set="common" read-only="true" />
+                    <field id="dr:wf" set="common" read-only="true" />
+                    <field id="dr:wfStatus" set="common" read-only="true" />
+                    <field id="dr:documentStatus" set="common" help-id="dr.documentStatus.help" />
+                    <field id="dr:secClassification" set="common" help-id="dr.secClassification.help" />
+                    <field id="dr:archiveSubType" set="specifics" />
+                    <field id="rplpdt:template" mandatory="true" set="specifics">
+                        <control template="/org/redpill_linpro/alfresco/share/components/form/controls/documenttemplate.ftl" />
+                    </field>
+                </appearance>
+            </form>
+        </forms>
+    </config>
+</alfresco-config>

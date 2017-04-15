@@ -1,0 +1,16 @@
+com/dr/alfresco/repo/utils/UpdateMetadataOnChildrenImpl.class
+com/dr/alfresco/repo/jobs/ReplicateMetadataToChildrenJob.class
+com/dr/alfresco/repo/policy/DocumentNumberPolicy.class
+com/dr/alfresco/repo/policy/RunSafe.class
+com/dr/alfresco/repo/jobs/ReplicateMetadataToChildren.class
+com/dr/alfresco/repo/policy/AbstractPolicy.class
+com/dr/alfresco/repo/policy/ReplicateMetadataToChildrenPolicy.class
+com/dr/alfresco/repo/policy/DisableAllBehavioursRunSafe.class
+com/dr/alfresco/repo/policy/CreateTemplateContent.class
+com/dr/alfresco/repo/policy/CreateTemplateContent$1.class
+com/dr/alfresco/repo/policy/CreateTemplateContent$NoMatchingTemplate.class
+com/dr/alfresco/repo/policy/DefaultRunSafe.class
+com/dr/alfresco/repo/utils/UpdateMetadataOnChildren.class
+com/dr/alfresco/repo/utils/ApplicationContextHolder.class
+com/dr/alfresco/repo/jobs/ReplicateMetadataToChildrenJob$1.class
+com/dr/alfresco/repo/model/DrModel.class

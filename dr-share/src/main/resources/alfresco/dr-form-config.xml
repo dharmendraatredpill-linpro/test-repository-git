@@ -1,0 +1,578 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alfresco-config>
+    <config>
+        <forms>
+            <dependencies>
+                <js src="/js/dr-form-field-validation-handler.js" />
+            </dependencies>
+        </forms>
+    </config>
+    
+    <config evaluator="node-type" condition="dr:drBaseContent">
+        <forms>
+            <form>
+                <field-visibility>
+                    <show id="cm:name" />
+                    <show id="cm:title" force="true" />
+                    <show id="cm:description" force="true" />
+                    <show id="mimetype" force="true" />
+                    <show id="cm:author" force="true" />
+                    <show id="cm:versionLabel" force="true" />
+                    <show id="size" force="true" />
+                    <show id="cm:creator" force="true" />
+                    <show id="cm:created" force="true" />
+                    <show id="cm:modifier" force="true" />
+                    <show id="cm:modified" force="true" />
+                    <show id="dr:documentId" force="true" />
+                    <show id="dr:wf" force="true" />
+                    <show id="dr:wfStatus" force="true" />
+                    <show id="dr:documentStatus" force="true" />
+                    <show id="dr:secClassification" force="true" />
+                    <show id="dr:generalDocumentSubType" force="true" />
+                </field-visibility>
+                <appearance>
+                    <set id="common" appearance="fieldset" label-id="dr.set.common" />
+                    <set id="specifics" appearance="fieldset" label-id="dr.set.general.document.metadata" />
+                    <set id="default" appearance="fieldset" label-id="dr.set.default" />
+                    <field id="cm:name" set="common" />
+                    <field id="cm:title" set="common" />
+                    <field id="cm:description" set="common" />
+                    <field id="mimetype" set="default" read-only="true" />
+                    <field id="cm:author" set="default" read-only="true" />
+                    <field id="cm:versionLabel" set="default" read-only="true" />
+                    <field id="size" set="default" read-only="true" />
+                    <field id="cm:creator" set="default" read-only="true" />
+                    <field id="cm:created" set="default" read-only="true" />
+                    <field id="cm:modifier" set="default" read-only="true" />
+                    <field id="cm:modified" set="default" read-only="true" />
+                    <field id="dr:documentId" set="common" read-only="true" />
+                    <field id="dr:wf" set="common" read-only="true" />
+                    <field id="dr:wfStatus" set="common" read-only="true" />
+                    <field id="dr:documentStatus" set="common" help-id="dr.documentStatus.help" />
+                    <field id="dr:secClassification" set="common" help-id="dr.secClassification.help" />
+                    <field id="dr:generalDocumentSubType" set="specifics" />
+                </appearance>
+            </form>
+        </forms>
+    </config>
+    <config evaluator="node-type" condition="dr:generalDocument">
+        <forms>
+            <form>
+                <field-visibility>
+                    <show id="cm:name" />
+                    <show id="cm:title" force="true" />
+                    <show id="cm:description" force="true" />
+                    <show id="mimetype" force="true" />
+                    <show id="cm:author" force="true" />
+                    <show id="cm:versionLabel" force="true" />
+                    <show id="size" force="true" />
+                    <show id="cm:creator" force="true" />
+                    <show id="cm:created" force="true" />
+                    <show id="cm:modifier" force="true" />
+                    <show id="cm:modified" force="true" />
+                    <show id="dr:documentId" force="true" />
+                    <show id="dr:wf" force="true" />
+                    <show id="dr:wfStatus" force="true" />
+                    <show id="dr:documentStatus" force="true" />
+                    <show id="dr:secClassification" force="true" />
+                    <show id="dr:generalDocumentSubType" force="true" />
+                </field-visibility>
+                <appearance>
+                    <set id="common" appearance="fieldset" label-id="dr.set.common" />
+                    <set id="specifics" appearance="fieldset" label-id="dr.set.general.document.metadata" />
+                    <set id="default" appearance="fieldset" label-id="dr.set.default" />
+                    <field id="cm:name" set="common" />
+                    <field id="cm:title" set="common" />
+                    <field id="cm:description" set="common" />
+                    <field id="mimetype" set="default" read-only="true" />
+                    <field id="cm:author" set="default" read-only="true" />
+                    <field id="cm:versionLabel" set="default" read-only="true" />
+                    <field id="size" set="default" read-only="true" />
+                    <field id="cm:creator" set="default" read-only="true" />
+                    <field id="cm:created" set="default" read-only="true" />
+                    <field id="cm:modifier" set="default" read-only="true" />
+                    <field id="cm:modified" set="default" read-only="true" />
+                    <field id="dr:documentId" set="common" read-only="true" />
+                    <field id="dr:wf" set="common" read-only="true" />
+                    <field id="dr:wfStatus" set="common" read-only="true" />
+                    <field id="dr:documentStatus" set="common" help-id="dr.documentStatus.help" />
+                    <field id="dr:secClassification" set="common" help-id="dr.secClassification.help" />
+                    <field id="dr:generalDocumentSubType" set="specifics" />
+                </appearance>
+            </form>
+        </forms>
+    </config>
+    <config evaluator="node-type" condition="dr:customerAgreement">
+        <forms>
+            <form>
+                <field-visibility>
+                    <show id="cm:name" />
+                    <show id="cm:title" force="true" />
+                    <show id="cm:description" force="true" />
+                    <show id="mimetype" force="true" />
+                    <show id="cm:author" force="true" />
+                    <show id="cm:versionLabel" force="true" />
+                    <show id="size" force="true" />
+                    <show id="cm:creator" force="true" />
+                    <show id="cm:created" force="true" />
+                    <show id="cm:modifier" force="true" />
+                    <show id="cm:modified" force="true" />
+                    <show id="dr:documentId" force="true" />
+                    <show id="dr:wf" force="true" />
+                    <show id="dr:wfStatus" force="true" />
+                    <show id="dr:documentStatus" force="true" />
+                    <show id="dr:secClassification" force="true" />
+                    <show id="dr:noticeDate" force="true" />
+                    <show id="dr:totalInsuranceLiability" force="true" />
+                    <show id="dr:governingLaw" force="true" />
+                    <show id="dr:customerAgreementSubType" force="true" />
+                    <show id="dr:endCustomer" force="true" />
+                    <show id="dr:validFrom" force="true" />
+                    <show id="dr:terminationDate" force="true" />
+                    <show id="dr:signed" force="true" />
+                </field-visibility>
+                <appearance>
+                    <set id="common" appearance="fieldset" label-id="dr.set.common" />
+                    <set id="specifics" appearance="fieldset" label-id="dr.set.customer.agreement.metadata" />
+                    <set id="default" appearance="fieldset" label-id="dr.set.default" />
+                    <field id="cm:name" set="common" />
+                    <field id="cm:title" set="common" />
+                    <field id="cm:description" set="common" />
+                    <field id="mimetype" set="default" read-only="true" />
+                    <field id="cm:author" set="default" read-only="true" />
+                    <field id="cm:versionLabel" set="default" read-only="true" />
+                    <field id="size" set="default" read-only="true" />
+                    <field id="cm:creator" set="default" read-only="true" />
+                    <field id="cm:created" set="default" read-only="true" />
+                    <field id="cm:modifier" set="default" read-only="true" />
+                    <field id="cm:modified" set="default" read-only="true" />
+                    <field id="dr:documentId" set="common" read-only="true" />
+                    <field id="dr:wf" set="common" read-only="true" />
+                    <field id="dr:wfStatus" set="common" read-only="true" />
+                    <field id="dr:documentStatus" set="common" help-id="dr.documentStatus.help" />
+                    <field id="dr:secClassification" set="common" help-id="dr.secClassification.help" />
+                    <field id="dr:noticeDate" set="specifics" help-id="dr.noticeDate.help">
+                        <control template="/org/redpill_linpro/alfresco/share/components/form/controls/customdate.ftl" />
+                    </field>
+                    <field id="dr:totalInsuranceLiability" set="specifics" help-id="dr.totalInsuranceLiability.help" />
+                    <field id="dr:governingLaw" set="specifics" help-id="dr.governingLaw.help" />
+                    <field id="dr:customerAgreementSubType" set="specifics" />
+                    <field id="dr:endCustomer" set="specifics" help-id="dr.endCustomer.help" />
+                    <field id="dr:validFrom" set="specifics" help-id="dr.validFrom.help">
+                       <control template="/org/redpill_linpro/alfresco/share/components/form/controls/customdate.ftl" />
+                    </field>
+                    <field id="dr:terminationDate" set="specifics" help-id="dr.terminationDate.help">
+                       <control template="/org/redpill_linpro/alfresco/share/components/form/controls/customdate.ftl" />
+                    </field>
+                    <field id="dr:signed" set="specifics" help-id="dr.signed.help" />
+                </appearance>
+            </form>
+        </forms>
+    </config>
+    <config evaluator="node-type" condition="dr:companyInformation">
+        <forms>
+            <!-- Default Create Content form -->
+            <form>
+                <field-visibility>
+                    <show id="cm:name" />
+                    <show id="cm:title" force="true" />
+                    <show id="cm:description" force="true" />
+                    <show id="mimetype" force="true" />
+                    <show id="cm:author" force="true" />
+                    <show id="cm:versionLabel" force="true" />
+                    <show id="size" force="true" />
+                    <show id="cm:creator" force="true" />
+                    <show id="cm:created" force="true" />
+                    <show id="cm:modifier" force="true" />
+                    <show id="cm:modified" force="true" />
+                    <show id="dr:documentId" force="true" />
+                    <show id="dr:wf" force="true" />
+                    <show id="dr:wfStatus" force="true" />
+                    <show id="dr:documentStatus" force="true" />
+                    <show id="dr:secClassification" force="true" />
+                </field-visibility>
+                <appearance>
+                    <set id="common" appearance="fieldset" label-id="dr.set.common" />
+                    <set id="specifics" appearance="fieldset" label-id="dr.set.company.information.metadata" />
+                    <set id="default" appearance="fieldset" label-id="dr.set.default" />
+                    <field id="cm:name" set="common" />
+                    <field id="cm:title" set="common" />
+                    <field id="cm:description" set="common" />
+                    <field id="mimetype" set="default" read-only="true" />
+                    <field id="cm:author" set="default" read-only="true" />
+                    <field id="cm:versionLabel" set="default" read-only="true" />
+                    <field id="size" set="default" read-only="true" />
+                    <field id="cm:creator" set="default" read-only="true" />
+                    <field id="cm:created" set="default" read-only="true" />
+                    <field id="cm:modifier" set="default" read-only="true" />
+                    <field id="cm:modified" set="default" read-only="true" />
+                    <field id="dr:documentId" set="common" read-only="true" />
+                    <field id="dr:wf" set="common" read-only="true" />
+                    <field id="dr:wfStatus" set="common" read-only="true" />
+                    <field id="dr:documentStatus" set="common" help-id="dr.documentStatus.help" />
+                    <field id="dr:secClassification" set="common" help-id="dr.secClassification.help" />
+                </appearance>
+            </form>
+        </forms>
+    </config>
+    <config evaluator="node-type" condition="dr:navigationBoard">
+        <forms>
+            <!-- Default Create Content form -->
+            <form>
+                <field-visibility>
+                    <show id="cm:name" />
+                    <show id="cm:title" force="true" />
+                    <show id="cm:description" force="true" />
+                    <show id="mimetype" force="true" />
+                    <show id="cm:author" force="true" />
+                    <show id="cm:versionLabel" force="true" />
+                    <show id="size" force="true" />
+                    <show id="cm:creator" force="true" />
+                    <show id="cm:created" force="true" />
+                    <show id="cm:modifier" force="true" />
+                    <show id="cm:modified" force="true" />
+                    <show id="dr:documentId" force="true" />
+                    <show id="dr:wf" force="true" />
+                    <show id="dr:wfStatus" force="true" />
+                    <show id="dr:documentStatus" force="true" />
+                    <show id="dr:secClassification" force="true" />
+                    <show id="dr:navigationBoardSubType" force="true" />
+                    <show id="dr:endCustomer" force="true" />
+                </field-visibility>
+                <appearance>
+                    <set id="common" appearance="fieldset" label-id="dr.set.common" />
+                    <set id="specifics" appearance="fieldset" label-id="dr.set.navigation.board.metadata" />
+                    <set id="default" appearance="fieldset" label-id="dr.set.default" />
+                    <field id="cm:name" set="common" />
+                    <field id="cm:title" set="common" />
+                    <field id="cm:description" set="common" />
+                    <field id="mimetype" set="default" read-only="true" />
+                    <field id="cm:author" set="default" read-only="true" />
+                    <field id="cm:versionLabel" set="default" read-only="true" />
+                    <field id="size" set="default" read-only="true" />
+                    <field id="cm:creator" set="default" read-only="true" />
+                    <field id="cm:created" set="default" read-only="true" />
+                    <field id="cm:modifier" set="default" read-only="true" />
+                    <field id="cm:modified" set="default" read-only="true" />
+                    <field id="dr:documentId" set="common" read-only="true" />
+                    <field id="dr:wf" set="common" read-only="true" />
+                    <field id="dr:wfStatus" set="common" read-only="true" />
+                    <field id="dr:documentStatus" set="common" help-id="dr.documentStatus.help" />
+                    <field id="dr:secClassification" set="common" help-id="dr.secClassification.help" />
+                    <field id="dr:endCustomer" set="specifics" help-id="dr.endCustomer.help" />
+                    <field id="dr:navigationBoardSubType" set="specifics" />
+                </appearance>
+            </form>
+        </forms>
+    </config>
+    <config evaluator="node-type" condition="dr:mzDocumentation">
+        <forms>
+            <!-- Default Create Content form -->
+            <form>
+                <field-visibility>
+                    <show id="cm:name" />
+                    <show id="cm:title" force="true" />
+                    <show id="cm:description" force="true" />
+                    <show id="mimetype" force="true" />
+                    <show id="cm:author" force="true" />
+                    <show id="cm:versionLabel" force="true" />
+                    <show id="size" force="true" />
+                    <show id="cm:creator" force="true" />
+                    <show id="cm:created" force="true" />
+                    <show id="cm:modifier" force="true" />
+                    <show id="cm:modified" force="true" />
+                    <show id="dr:documentId" force="true" />
+                    <show id="dr:wf" force="true" />
+                    <show id="dr:wfStatus" force="true" />
+                    <show id="dr:documentStatus" force="true" />
+                    <show id="dr:secClassification" force="true" />
+                    <show id="dr:mzDocumentationSubType" force="true" />
+                    <show id="dr:softwareName" force="true" />
+                    <show id="dr:releaseVersion" force="true" />
+                </field-visibility>
+                <appearance>
+                    <set id="common" appearance="fieldset" label-id="dr.set.common" />
+                    <set id="specifics" appearance="fieldset" label-id="dr.set.mzdocumentation.metadata" />
+                    <set id="default" appearance="fieldset" label-id="dr.set.default" />
+                    <field id="cm:name" set="common" />
+                    <field id="cm:title" set="common" />
+                    <field id="cm:description" set="common" />
+                    <field id="mimetype" set="default" read-only="true" />
+                    <field id="cm:author" set="default" read-only="true" />
+                    <field id="cm:versionLabel" set="default" read-only="true" />
+                    <field id="size" set="default" read-only="true" />
+                    <field id="cm:creator" set="default" read-only="true" />
+                    <field id="cm:created" set="default" read-only="true" />
+                    <field id="cm:modifier" set="default" read-only="true" />
+                    <field id="cm:modified" set="default" read-only="true" />
+                    <field id="dr:documentId" set="common" read-only="true" />
+                    <field id="dr:wf" set="common" read-only="true" />
+                    <field id="dr:wfStatus" set="common" read-only="true" />
+                    <field id="dr:documentStatus" set="common" help-id="dr.documentStatus.help" />
+                    <field id="dr:secClassification" set="common" help-id="dr.secClassification.help" />
+                    <field id="dr:mzDocumentationSubType" set="specifics" />
+                    <field id="dr:softwareName" set="specifics" help-id="dr.softwareName.help" />
+                    <field id="dr:releaseVersion" set="specifics" help-id="dr.releaseVersion.help" />
+                </appearance>
+            </form>
+        </forms>
+    </config>
+    <config evaluator="node-type" condition="dr:proposal">
+        <forms>
+            <!-- Default Create Content form -->
+            <form>
+                <field-visibility>
+                    <show id="cm:name" />
+                    <show id="cm:title" force="true" />
+                    <show id="cm:description" force="true" />
+                    <show id="mimetype" force="true" />
+                    <show id="cm:author" force="true" />
+                    <show id="cm:versionLabel" force="true" />
+                    <show id="size" force="true" />
+                    <show id="cm:creator" force="true" />
+                    <show id="cm:created" force="true" />
+                    <show id="cm:modifier" force="true" />
+                    <show id="cm:modified" force="true" />
+                    <show id="dr:documentId" force="true" />
+                    <show id="dr:wf" force="true" />
+                    <show id="dr:wfStatus" force="true" />
+                    <show id="dr:documentStatus" force="true" />
+                    <show id="dr:secClassification" force="true" />
+                    <show id="dr:endCustomer" force="true" />
+                    <show id="dr:validFrom" force="true" />
+                    <show id="dr:terminationDate" force="true" />
+                    <show id="dr:signed" force="true" />
+                </field-visibility>
+                <appearance>
+                    <set id="common" appearance="fieldset" label-id="dr.set.common" />
+                    <set id="specifics" appearance="fieldset" label-id="dr.set.proposal.metadata" />
+                    <set id="default" appearance="fieldset" label-id="dr.set.default" />
+                    <field id="cm:name" set="common" />
+                    <field id="cm:title" set="common" />
+                    <field id="cm:description" set="common" />
+                    <field id="mimetype" set="default" read-only="true" />
+                    <field id="cm:author" set="default" read-only="true" />
+                    <field id="cm:versionLabel" set="default" read-only="true" />
+                    <field id="size" set="default" read-only="true" />
+                    <field id="cm:creator" set="default" read-only="true" />
+                    <field id="cm:created" set="default" read-only="true" />
+                    <field id="cm:modifier" set="default" read-only="true" />
+                    <field id="cm:modified" set="default" read-only="true" />
+                    <field id="dr:documentId" set="common" read-only="true" />
+                    <field id="dr:wf" set="common" read-only="true" />
+                    <field id="dr:wfStatus" set="common" read-only="true" />
+                    <field id="dr:documentStatus" set="common" help-id="dr.documentStatus.help" />
+                    <field id="dr:secClassification" set="common" help-id="dr.secClassification.help" />
+                    <field id="dr:endCustomer" set="specifics" help-id="dr.endCustomer.help" />
+                    <field id="dr:validFrom" set="specifics" help-id="dr.validFrom.help" >
+                    	<control template="/org/redpill_linpro/alfresco/share/components/form/controls/customdate.ftl" />
+                    </field>
+                    <field id="dr:terminationDate" set="specifics" help-id="dr.terminationDate.help" >
+                    	<control template="/org/redpill_linpro/alfresco/share/components/form/controls/customdate.ftl" />
+                    </field>
+                    <field id="dr:signed" set="specifics" help-id="dr:signed.help" />
+                </appearance>
+            </form>
+        </forms>
+    </config>
+    <config evaluator="node-type" condition="dr:purchaseOrder">
+        <forms>
+            <!-- Default Create Content form -->
+            <form>
+                <field-visibility>
+                    <show id="cm:name" />
+                    <show id="cm:title" force="true" />
+                    <show id="cm:description" force="true" />
+                    <show id="mimetype" force="true" />
+                    <show id="cm:author" force="true" />
+                    <show id="cm:versionLabel" force="true" />
+                    <show id="size" force="true" />
+                    <show id="cm:creator" force="true" />
+                    <show id="cm:created" force="true" />
+                    <show id="cm:modifier" force="true" />
+                    <show id="cm:modified" force="true" />
+                    <show id="dr:documentId" force="true" />
+                    <show id="dr:wf" force="true" />
+                    <show id="dr:wfStatus" force="true" />
+                    <show id="dr:documentStatus" force="true" />
+                    <show id="dr:secClassification" force="true" />
+                    <show id="dr:poNumber" force="true" />
+                    <show id="dr:endCustomer" force="true" />
+                </field-visibility>
+                <appearance>
+                    <set id="common" appearance="fieldset" label-id="dr.set.common" />
+                    <set id="specifics" appearance="fieldset" label-id="dr.set.purchase.order.metadata" />
+                    <set id="default" appearance="fieldset" label-id="dr.set.default" />
+                    <field id="cm:name" set="common" />
+                    <field id="cm:title" set="common" />
+                    <field id="cm:description" set="common" />
+                    <field id="mimetype" set="default" read-only="true" />
+                    <field id="cm:author" set="default" read-only="true" />
+                    <field id="cm:versionLabel" set="default" read-only="true" />
+                    <field id="size" set="default" read-only="true" />
+                    <field id="cm:creator" set="default" read-only="true" />
+                    <field id="cm:created" set="default" read-only="true" />
+                    <field id="cm:modifier" set="default" read-only="true" />
+                    <field id="cm:modified" set="default" read-only="true" />
+                    <field id="dr:documentId" set="common" read-only="true" />
+                    <field id="dr:wf" set="common" read-only="true" />
+                    <field id="dr:wfStatus" set="common" read-only="true" />
+                    <field id="dr:documentStatus" set="common" help-id="dr.documentStatus.help" />
+                    <field id="dr:secClassification" set="common" help-id="dr.secClassification.help" />
+                    <field id="dr:poNumber" set="specifics" mandatory="true" help-id="dr.poNumber.help">
+                        <constraint-handlers>
+                            <constraint type="MANDATORY" validation-handler="Alfresco.forms.validation.poNumber" event="keyup" />
+                        </constraint-handlers>
+                    </field>
+                    <field id="dr:endCustomer" set="specifics" help-id="dr.endCustomer.help" />
+                </appearance>
+            </form>
+        </forms>
+    </config>
+    <config evaluator="node-type" condition="dr:RFX">
+        <forms>
+            <!-- Default Create Content form -->
+            <form>
+                <field-visibility>
+                    <show id="cm:name" />
+                    <show id="cm:title" force="true" />
+                    <show id="cm:description" force="true" />
+                    <show id="dr:documentId" force="true" />
+                    <show id="mimetype" force="true" />
+                    <show id="cm:author" force="true" />
+                    <show id="cm:versionLabel" force="true" />
+                    <show id="size" force="true" />
+                    <show id="cm:creator" force="true" />
+                    <show id="cm:created" force="true" />
+                    <show id="cm:modifier" force="true" />
+                    <show id="cm:modified" force="true" />
+                    <show id="dr:wf" force="true" />
+                    <show id="dr:wfStatus" force="true" />
+                    <show id="dr:documentStatus" force="true" />
+                    <show id="dr:secClassification" force="true" />
+                </field-visibility>
+                <appearance>
+                    <set id="common" appearance="fieldset" label-id="dr.set.common" />
+                    <set id="specifics" appearance="fieldset" label-id="dr.set.rfx.metadata" />
+                    <set id="default" appearance="fieldset" label-id="dr.set.default" />
+                    <field id="cm:name" set="common" />
+                    <field id="cm:title" set="common" />
+                    <field id="cm:description" set="common" />
+                    <field id="mimetype" set="default" read-only="true" />
+                    <field id="cm:author" set="default" read-only="true" />
+                    <field id="cm:versionLabel" set="default" read-only="true" />
+                    <field id="size" set="default" read-only="true" />
+                    <field id="cm:creator" set="default" read-only="true" />
+                    <field id="cm:created" set="default" read-only="true" />
+                    <field id="cm:modifier" set="default" read-only="true" />
+                    <field id="cm:modified" set="default" read-only="true" />
+                    <field id="dr:documentId" set="common" read-only="true" />
+                    <field id="dr:wf" set="common" read-only="true" />
+                    <field id="dr:wfStatus" set="common" read-only="true" />
+                    <field id="dr:documentStatus" set="common" help-id="dr.documentStatus.help" />
+                    <field id="dr:secClassification" set="common" help-id="dr.secClassification.help" />
+                </appearance>
+            </form>
+        </forms>
+    </config>
+    <config evaluator="node-type" condition="dr:SDR">
+        <forms>
+            <!-- Default Create Content form -->
+            <form>
+                <field-visibility>
+                    <show id="cm:name" />
+                    <show id="cm:title" force="true" />
+                    <show id="cm:description" force="true" />
+                    <show id="mimetype" force="true" />
+                    <show id="cm:author" force="true" />
+                    <show id="cm:versionLabel" force="true" />
+                    <show id="size" force="true" />
+                    <show id="cm:creator" force="true" />
+                    <show id="cm:created" force="true" />
+                    <show id="cm:modifier" force="true" />
+                    <show id="cm:modified" force="true" />
+                    <show id="dr:documentId" force="true" />
+                    <show id="dr:wf" force="true" />
+                    <show id="dr:wfStatus" force="true" />
+                    <show id="dr:documentStatus" force="true" />
+                    <show id="dr:secClassification" force="true" />
+                    <show id="dr:endCustomer" force="true" />
+                    <show id="dr:softwareName" force="true" />
+                    <show id="dr:releaseVersion" force="true" />
+                </field-visibility>
+                <appearance>
+                    <set id="common" appearance="fieldset" label-id="dr.set.common" />
+                    <set id="specifics" appearance="fieldset" label-id="dr.set.sdr.metadata" />
+                    <set id="default" appearance="fieldset" label-id="dr.set.default" />
+                    <field id="cm:name" set="common" />
+                    <field id="cm:title" set="common" />
+                    <field id="cm:description" set="common" />
+                    <field id="mimetype" set="default" read-only="true" />
+                    <field id="cm:author" set="default" read-only="true" />
+                    <field id="cm:versionLabel" set="default" read-only="true" />
+                    <field id="size" set="default" read-only="true" />
+                    <field id="cm:creator" set="default" read-only="true" />
+                    <field id="cm:created" set="default" read-only="true" />
+                    <field id="cm:modifier" set="default" read-only="true" />
+                    <field id="cm:modified" set="default" read-only="true" />
+                    <field id="dr:documentId" set="common" read-only="true" />
+                    <field id="dr:wf" set="common" read-only="true" />
+                    <field id="dr:wfStatus" set="common" read-only="true" />
+                    <field id="dr:documentStatus" set="common" help-id="dr.documentStatus.help" />
+                    <field id="dr:secClassification" set="common" help-id="dr.secClassification.help" />
+                    <field id="dr:endCustomer" set="specifics" help-id="dr.endCustomer.help" />
+                    <field id="dr:softwareName" set="specifics" help-id="dr.softwareName.help" />
+                    <field id="dr:releaseVersion" set="specifics" help-id="dr.releaseVersion.help" />
+                </appearance>
+            </form>
+        </forms>
+    </config>
+    <config evaluator="node-type" condition="dr:archive">
+        <forms>
+            <!-- Default Create Content form -->
+            <form>
+                <field-visibility>
+                    <show id="cm:name" />
+                    <show id="cm:title" force="true" />
+                    <show id="cm:description" force="true" />
+                    <show id="mimetype" force="true" />
+                    <show id="cm:author" force="true" />
+                    <show id="cm:versionLabel" force="true" />
+                    <show id="size" force="true" />
+                    <show id="cm:creator" force="true" />
+                    <show id="cm:created" force="true" />
+                    <show id="cm:modifier" force="true" />
+                    <show id="cm:modified" force="true" />
+                    <show id="dr:documentId" force="true" />
+                    <show id="dr:wf" force="true" />
+                    <show id="dr:wfStatus" force="true" />
+                    <show id="dr:documentStatus" force="true" />
+                    <show id="dr:secClassification" force="true" />
+                    <show id="dr:archiveSubType" force="true" />
+                </field-visibility>
+                <appearance>
+                    <set id="common" appearance="fieldset" label-id="dr.set.common" />
+                    <set id="specifics" appearance="fieldset" label-id="dr.set.archive.metadata" />
+                    <set id="default" appearance="fieldset" label-id="dr.set.default" />
+                    <field id="cm:name" set="common" />
+                    <field id="cm:title" set="common" />
+                    <field id="cm:description" set="common" />
+                    <field id="mimetype" set="default" read-only="true" />
+                    <field id="cm:author" set="default" read-only="true" />
+                    <field id="cm:versionLabel" set="default" read-only="true" />
+                    <field id="size" set="default" read-only="true" />
+                    <field id="cm:creator" set="default" read-only="true" />
+                    <field id="cm:created" set="default" read-only="true" />
+                    <field id="cm:modifier" set="default" read-only="true" />
+                    <field id="cm:modified" set="default" read-only="true" />
+                    <field id="dr:documentId" set="common" read-only="true" />
+                    <field id="dr:wf" set="common" read-only="true" />
+                    <field id="dr:wfStatus" set="common" read-only="true" />
+                    <field id="dr:documentStatus" set="common" help-id="dr.documentStatus.help" />
+                    <field id="dr:secClassification" set="common" help-id="dr.secClassification.help" />
+                    <field id="dr:archiveSubType" set="specifics" />
+                </appearance>
+            </form>
+        </forms>
+    </config>
+</alfresco-config>

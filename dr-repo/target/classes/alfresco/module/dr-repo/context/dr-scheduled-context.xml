@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+  <bean id="dr.clusteredExecuter" class="com.dr.alfresco.repo.jobs.ClusteredExecuter" abstract="true">
+    <property name="jobLockService" ref="jobLockService" />
+    <property name="transactionService" ref="TransactionService" />
+    <property name="lockTTL" value="30000" />
+    <property name="repositoryState" ref="repositoryState" />
+  </bean>
+
+  <bean id="dr.templateActionModelFactory" class="org.alfresco.repo.action.scheduled.FreeMarkerWithLuceneExtensionsModelFactory">
+    <property name="serviceRegistry" ref="ServiceRegistry" />
+  </bean>
+
+
+  <!-- ************************************************** -->
+  <!-- Job to see if any folder has been updated with new metadata -->
+  <!-- ************************************************** -->
+
+  <bean id="dr.replicateMetadataToChildren" class="com.dr.alfresco.repo.jobs.ReplicateMetadataToChildren">
+    <property name="nodeService" ref="NodeService" />
+    <property name="searchService" ref="SearchService" />
+    <property name="updateMetadataOnChildren" ref="dr.updateMetadataOnChildren" />
+    <property name="behaviourFilter" ref="policyBehaviourFilter" />
+  </bean>
+
+  <bean id="dr.replicateMetadataToChildrenJobDetail" class="org.springframework.scheduling.quartz.JobDetailBean">
+    <property name="jobClass" value="com.dr.alfresco.repo.jobs.ReplicateMetadataToChildrenJob" />
+    <property name="jobDataAsMap">
+      <map>
+        <entry key="replicateMetadataToChildren" value-ref="dr.replicateMetadataToChildren" />
+        <entry key="jobLockService" value-ref="jobLockService" />
+      </map>
+    </property>
+  </bean>
+
+  <bean id="dr.replicateMetadataToChildrenTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+    <property name="jobDetail" ref="dr.replicateMetadataToChildrenJobDetail" />
+    <property name="cronExpression" value="${dr.jobs.replicatemetadatatochildren.trigger.cronexpression}" />
+  </bean>
+
+
+  <bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+    <property name="triggers">
+      <list>
+        <ref bean="dr.replicateMetadataToChildrenTrigger" />
+      </list>
+    </property>
+  </bean>
+
+</beans>

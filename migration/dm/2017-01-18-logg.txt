@@ -1,0 +1,5 @@
+./migrate.py /data/prod/FO_DMadmin/Alfresco /opt/alfresco/alf_data/temp/ \\\\winfs-proj\\data\\proj\\dmexport\\EXPORT\\ /data/prod/FO_DMadmin/Alfresco/doc_type_mapping.csv
+
+Skapa site som heter dm-export och gå till dokumentbilbioteket
+Gå till https://alfresco-tst.smhi.se/alfresco/s/bulk/import
+Ange /opt/alfresco/alf_data/temp och /. Starta

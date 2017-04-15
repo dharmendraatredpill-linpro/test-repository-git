@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension>
+	<modules>
+		<module>
+			<id>Redpill Linpro Default Document Templates</id>
+			<auto-deploy>true</auto-deploy>
+			<version>${project.version}</version>
+			<configurations>
+				<config evaluator="string-compare" condition="DocumentLibrary" replace="true">
+					<create-content>
+						<!--  <content id="content" label="create-content.archive" type="pagelink" index="1" icon="text">
+							<param name="page">create-content?destination={nodeRef}&amp;itemId=dr:archive</param>
+						</content>
+						-->
+						<content id="customer_agreement" label="create-content.customer_agreement" type="pagelink" index="1" icon="text">
+							<param name="page">create-content?destination={nodeRef}&amp;drTemplate=true&amp;itemId=dr:customerAgreement</param>
+						</content>
+						<content id="company_information" label="create-content.company_information" type="pagelink" index="2" icon="text">
+							<param name="page">create-content?destination={nodeRef}&amp;drTemplate=true&amp;itemId=dr:companyInformation</param>
+						</content>
+						<content id="general_document" label="create-content.general_document" type="pagelink" index="3" icon="text">
+							<param name="page">create-content?destination={nodeRef}&amp;drTemplate=true&amp;itemId=dr:generalDocument</param>
+						</content>
+						<content id="mz_documentation" label="create-content.mz_documentation" type="pagelink" index="4" icon="text">
+							<param name="page">create-content?destination={nodeRef}&amp;drTemplate=true&amp;itemId=dr:mzDocumentation</param>
+						</content>
+						<content id="navigation_board" label="create-content.navigation_board" type="pagelink" index="5" icon="text">
+							<param name="page">create-content?destination={nodeRef}&amp;drTemplate=true&amp;itemId=dr:navigationBoard</param>
+						</content>
+						<content id="proposal" label="create-content.proposal" type="pagelink" index="6" icon="text">
+							<param name="page">create-content?destination={nodeRef}&amp;drTemplate=true&amp;itemId=dr:proposal</param>
+						</content>
+						<content id="purchaseOrder" label="create-content.purchase_order" type="pagelink" index="7" icon="text">
+							<param name="page">create-content?destination={nodeRef}&amp;drTemplate=true&amp;itemId=dr:purchaseOrder</param>
+						</content>
+						<content id="rfx" label="create-content.rfx" type="pagelink" index="8" icon="text">
+							<param name="page">create-content?destination={nodeRef}&amp;drTemplate=true&amp;itemId=dr:RFX</param>
+						</content>
+						<content id="sdr" label="create-content.sdr" type="pagelink" index="9" icon="text">
+							<param name="page">create-content?destination={nodeRef}&amp;drTemplate=true&amp;itemId=dr:SDR</param>
+						</content>
+						<content id="customer_folder" label="dr.menu.create-content.customer_folder" type="pagelink" index="10" icon="folder">
+							<param name="page">create-content?destination={nodeRef}&amp;drTemplate=true&amp;itemId=dr:customerFolder&amp; </param>
+						</content>
+						<content id="project_folder" label="dr.menu.create-content.project_folder" type="pagelink" index="11" icon="folder">
+							<param name="page">create-content?destination={nodeRef}&amp;drTemplate=true&amp;itemId=dr:projectFolder&amp; </param>
+						</content>
+						<content id="opportunity_folder" label="dr.menu.create-content.opportunity_folder" type="pagelink" index="12" icon="folder">
+							<param name="page">create-content?destination={nodeRef}&amp;drTemplate=true&amp;itemId=dr:opportunityFolder&amp; </param>
+						</content>
+						<content id="project_estimation_folder"	label="dr.menu.create-content.project_estimation_folder" type="pagelink" index="13" icon="folder">
+							<param name="page">create-content?destination={nodeRef}&amp;drTemplate=true&amp;itemId=dr:projectEstimationFolder&amp; </param>
+						</content>
+						<content id="navigation_board_folder" label="dr.menu.create-content.navigation_board_folder" type="pagelink" index="14" icon="folder">
+							<param name="page">create-content?destination={nodeRef}&amp;drTemplate=true&amp;itemId=dr:navigationBoardFolder&amp; </param>
+						</content>
+						<content id="folder" label="create-content.folder" icon="folder" index="15" type="javascript">
+							<param name="function">onNewFolder</param>
+						</content>
+					</create-content>
+					 <create-content-by-template>false</create-content-by-template>
+				</config>
+			</configurations>
+		</module>
+	</modules>
+</extension>

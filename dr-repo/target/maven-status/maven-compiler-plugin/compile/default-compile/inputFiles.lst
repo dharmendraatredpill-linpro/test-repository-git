@@ -1,0 +1,10 @@
+/home/dharmendra/alfresco/alfresco-digital-route-new/dr-repo/src/main/java/com/dr/alfresco/repo/policy/DocumentNumberPolicy.java
+/home/dharmendra/alfresco/alfresco-digital-route-new/dr-repo/src/main/java/com/dr/alfresco/repo/policy/ReplicateMetadataToChildrenPolicy.java
+/home/dharmendra/alfresco/alfresco-digital-route-new/dr-repo/src/main/java/com/dr/alfresco/repo/utils/UpdateMetadataOnChildrenImpl.java
+/home/dharmendra/alfresco/alfresco-digital-route-new/dr-repo/src/main/java/com/dr/alfresco/repo/jobs/ReplicateMetadataToChildrenJob.java
+/home/dharmendra/alfresco/alfresco-digital-route-new/dr-repo/src/main/java/com/dr/alfresco/repo/policy/CreateTemplateContent.java
+/home/dharmendra/alfresco/alfresco-digital-route-new/dr-repo/src/main/java/com/dr/alfresco/repo/jobs/ReplicateMetadataToChildren.java
+/home/dharmendra/alfresco/alfresco-digital-route-new/dr-repo/src/main/java/com/dr/alfresco/repo/utils/ApplicationContextHolder.java
+/home/dharmendra/alfresco/alfresco-digital-route-new/dr-repo/src/main/java/com/dr/alfresco/repo/model/DrModel.java
+/home/dharmendra/alfresco/alfresco-digital-route-new/dr-repo/src/main/java/com/dr/alfresco/repo/policy/AbstractPolicy.java
+/home/dharmendra/alfresco/alfresco-digital-route-new/dr-repo/src/main/java/com/dr/alfresco/repo/utils/UpdateMetadataOnChildren.java

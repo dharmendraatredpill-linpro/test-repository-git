@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE beans PUBLIC '-//SPRING//DTD BEAN//EN' 'http://www.springframework.org/dtd/spring-beans.dtd'>
+
+<beans>
+
+
+	<bean id="com.dr.alfresco.repo.policy.CreateTemplateContent" class="com.dr.alfresco.repo.policy.CreateTemplateContent">
+		<property name="searchService" ref="SearchService" />
+		<property name="templateDirectory">
+			<!-- <value>/app:company_home/app:dictionary/cm:DR_x0020_Templates</value> -->
+			<value>/app:company_home/st:sites/cm:template-site/cm:documentLibrary</value>
+		</property>
+		<property name="nodeService" ref="NodeService" />
+		<property name="policyComponent" ref="policyComponent" />
+		<property name="namespaceService" ref="namespaceService" />
+		<property name="fileFolderService" ref="FileFolderService" />
+ 		<property name="lockService" ref="LockService" />
+ 		<property name="siteService" ref="SiteService" />
+ 		
+	</bean>
+
+<!-- This is a helper bean for getting hold of the current application context and making it available with a static method -->
+  <bean id="dr.applicationContextHolder" class="com.dr.alfresco.repo.utils.ApplicationContextHolder" />
+  
+  <!-- alfresco-numbering module -->
+  <bean id="dr.prefixNumberingComponent" parent="rl.abstractNumberingComponent" depends-on="dictionaryBootstrap">
+    <property name="id" value="documentNumber" />
+    <property name="startValue" value="1" />
+    <property name="bindTypes">
+      <list>
+        <value>cm:content</value>
+      </list>
+    </property>
+    <property name="ignoreTypes">
+      <list>
+        <value>cm:thumbnail</value>
+      </list>
+    </property>
+    <property name="ignoreAspects">
+      <list>
+        <value>cm:workingcopy</value>
+      </list>
+    </property>  
+    <property name="decorator" ref="rl.prefixNumberingDecorator" />
+    <property name="numberingStorage" ref="rl.nodeNumberingStorage" />  
+  </bean>
+
+  <bean id="rplpdt.DocumentTemplatesContentFilter" class="org.redpill_linpro.alfresco.repo.form.DocumentTemplatesContentFilter" parent="baseFormFilter">
+    <property name="filterRegistry" ref="typeFilterRegistry" />
+    <property name="nodeService" ref="NodeService" />
+    <property name="fileFolderService" ref="FileFolderService" />
+  </bean>
+    <!-- Bootstrap the template library site. -->
+     <bean id="patch.siteLoadPatch.drTemplateLibrary" class="org.redpill_linpro.alfresco.repo.admin.patch.impl.SiteLoadPatch" parent="basePatch">
+        <property name="id"><value>patch.siteLoadPatch.drTemplateLibrary</value></property>
+        <property name="description"><value>patch.siteLoadPatch.description</value></property>
+        <property name="fixesFromSchema"><value>0</value></property>
+        <property name="fixesToSchema"><value>${version.schema}</value></property>
+        <property name="targetSchema"><value>100000</value></property>
+        <property name="disabled"><value>false</value></property>
+        <property name="dependsOn" >
+            <list>
+                <ref bean="patch.updateDmPermissions" />
+            </list>
+        </property>
+        <property name="spacesBootstrap" ref="siteLoadBootstrap-Spaces" />
+        <property name="usersBootstrap" ref="siteLoadBootstrap-Users" />
+        <property name="siteService" ref="siteService" />
+        <property name="descriptorService" ref="descriptorComponent" />
+        <property name="authorityService" ref="authorityService" />
+        <property name="behaviourFilter" ref="policyBehaviourFilter" />
+        <property name="siteName">
+            <value>template-site</value>
+        </property>
+        <property name="sitePreset">
+            <value>template-library</value>
+        </property>
+        <property name="bootstrapViews">
+            <map>
+                <entry key="contents">
+                    <props>
+                        <prop key="location">alfresco/module/dr-repo/context/bootstrap/template-site/Contents.acp</prop>
+                    </props>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+</beans>

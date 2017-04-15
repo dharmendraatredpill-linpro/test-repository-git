@@ -1,0 +1,33 @@
+<alfresco-config>
+	<config evaluator="string-compare" condition="DocumentLibrary">
+		<types>
+			<type name="cm:content">
+				<subtype name="dr:drBaseContent" />
+				<subtype name="dr:generalDocument" />
+				<subtype name="dr:customerAgreement" />
+				<subtype name="dr:companyInformation" />
+				<subtype name="dr:navigationBoard" />
+				<subtype name="dr:mzDocumentation" />
+				<subtype name="dr:proposal" />
+				<subtype name="dr:purchaseOrder" />
+				<subtype name="dr:RFX" />
+				<subtype name="dr:SDR" />
+				<subtype name="dr:archive" />
+			</type>
+
+			<type name="cm:folder">
+				<subtype name="dr:customerFolder" />
+				<subtype name="dr:projectFolder" />
+				<subtype name="dr:naviationBoardFolder" />
+				<subtype name="dr:projectEstimationFolder" />
+				<subtype name="dr:opportunityFolder" />
+			</type>
+		</types>
+	</config>
+
+	<config evaluator="string-compare" condition="DocumentTemplates"
+		replace="true">
+		<templates-folder-path>/app:company_home/st:sites/cm:template-library/cm:documentLibrary/cm:document-templates
+		</templates-folder-path>
+	</config>
+</alfresco-config>

@@ -1,0 +1,563 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model name="dr:contentModel" xmlns="http://www.alfresco.org/model/dictionary/1.0">
+	<!-- Optional meta-data about the model -->
+	<description>DR Document Model</description>
+	<author>Dharmendra</author>
+	<version>1.0</version>
+	<imports>
+		<!-- Import Alfresco Dictionary Definitions -->
+		<import uri="http://www.alfresco.org/model/dictionary/1.0"
+			prefix="d" />
+		<!-- Import Alfresco Content Domain Model Definitions -->
+		<import uri="http://www.alfresco.org/model/content/1.0" prefix="cm" />
+		<!-- Import Alfresco System Model Definitions -->
+		<import uri="http://www.alfresco.org/model/system/1.0" prefix="sys" />
+	</imports>
+	<!-- Custom namespace for the ACME company -->
+	<namespaces>
+		<namespace uri="http://www.digitalroute.com/model/content/1.0"
+			prefix="dr" />
+	</namespaces>
+	<constraints>
+		<constraint name="dr:projectNumberRegEx" type="REGEX">
+			<parameter name="expression">
+				<value><![CDATA[^\d{7}$|^\d{7}-\d{2}$|^\d{7}-C\d{2}$]]></value>
+			</parameter>
+			<parameter name="requiresMatch">
+				<value>true</value>
+			</parameter>
+		</constraint>
+		<constraint name="dr:customerNumberRegEx" type="REGEX">
+			<parameter name="expression">
+				<value><![CDATA[^\d{5}$]]></value>
+			</parameter>
+			<parameter name="requiresMatch">
+				<value>true</value>
+			</parameter>
+		</constraint>
+		<constraint name="dr:opportunityIDRegEx" type="REGEX">
+			<parameter name="expression">
+				<value><![CDATA[^\d{5}$]]></value>
+			</parameter>
+			<parameter name="requiresMatch">
+				<value>true</value>
+			</parameter>
+		</constraint>
+		<constraint name="dr:documentIdRegEx" type="REGEX">
+			<parameter name="expression">
+				<value><![CDATA[^D-\d{7}$]]></value>
+			</parameter>
+			<parameter name="requiresMatch">
+				<value>true</value>
+			</parameter>
+		</constraint>
+		<constraint name="dr:documentStatusOptions" type="LIST">
+			<parameter name="allowedValues">
+				<list>
+					<value>DRAFT</value>
+					<value>UNDER_REVIEW</value>
+					<value>REVIEWED</value>
+					<value>APPROVED</value>
+				</list>
+			</parameter>
+		</constraint>
+		<constraint name="dr:wfStatusOptions" type="LIST">
+			<parameter name="allowedValues">
+				<list>
+					<value>NONE</value>
+					<value>REVIEW</value>
+				</list>
+			</parameter>
+		</constraint>
+		<constraint name="dr:secClassificationOptions" type="LIST">
+			<parameter name="allowedValues">
+				<list>
+					<value>RESTRICTED</value>
+					<value>UNCLASSIFIED</value>
+					<value>CONFIDENTIAL</value>
+					<value>SECRET</value>
+				</list>
+			</parameter>
+		</constraint>
+		<constraint name="dr:customerAgreementSubTypeOptions" type="LIST">
+			<parameter name="allowedValues">
+				<list>
+					<value>LICENSE</value>
+					<value>SUBSCRIPTION</value>
+					<value>LICENSE_AND_SUPPORT</value>
+					<value>NDA</value>
+					<value>OEM</value>
+					<value>RESELLER</value>
+					<value>SERVICES</value>
+					<value>STATEMENT_OF_WORK</value>
+					<value>SUBCONTRACTOR</value>
+					<value>SUPPORT</value>
+					<value>VAR</value>
+					<value>WORK_ORDER</value>
+					<value>ESCROW</value>
+					<value>OTHER_AGREEMENT</value>
+				</list>
+			</parameter>
+		</constraint>
+		<constraint name="dr:navigationBoardSubTypeOptions" type="LIST">
+			<parameter name="allowedValues">
+				<list>
+					<value>ANALYSIS</value>
+					<value>DEAL_SHEET</value>
+					<value>MINUTES_OF_MEETING</value>
+				</list>
+			</parameter>
+		</constraint>
+		<constraint name="dr:mzDocumentationSubTypeOptions" type="LIST">
+			<parameter name="allowedValues">
+				<list>
+					<value>FUNCTIONAL_DESCRIPTION</value>
+					<value>KPI_REPORT</value>
+					<value>NEW_FEATURES_PRESENTATION</value>
+					<value>PRODUCT_CATALOGUE</value>
+					<value>PRODUCT_DESCRIPTION</value>
+					<value>PRODUCT_RELEASE_NOTES</value>
+					<value>TECHNICAL_PRESENTATION</value>
+				</list>
+			</parameter>
+		</constraint>
+		<constraint name="dr:signedOptions" type="LIST">
+			<parameter name="allowedValues">
+				<list>
+					<value>UNSIGNED</value>
+					<value>INTERNAL</value>
+					<value>EXTERNAL</value>
+					<value>INTERNAL_AND_EXTERNAL</value>
+				</list>
+			</parameter>
+		</constraint>
+		<constraint name="dr:generalDocumentSubTypeOptions" type="LIST">
+			<parameter name="allowedValues">
+				<list>
+					<value>ACCEPTANCE_CERTIFICATE</value>
+					<value>LETTER</value>
+					<value>MISC</value>
+					<value>SPONSOR_LETTER</value>
+				</list>
+			</parameter>
+		</constraint>
+		<constraint name="dr:archiveSubTypeOptions" type="LIST">
+			<parameter name="allowedValues">
+				<list>
+					<value>3RD_PARTY_SOFTWARE</value>
+					<value>ACCEPTANCE_TEST_SPECIFICATION</value>
+					<value>ASSIGNMENT_SPECIFICATION</value>
+					<value>CHANGE_REQUEST</value>
+					<value>DEFAULT</value>
+					<value>HARDWARE_ESTIMATE</value>
+					<value>MINUTES_OF_MEETING</value>
+					<value>SOLUTION_DEFINITION</value>
+					<value>USER_GUIDE</value>
+				</list>
+			</parameter>
+		</constraint>
+		<constraint name="dr:regionOptions" type="LIST">
+			<parameter name="allowedValues">
+				<list>
+					<value>EUR</value>
+					<value>MEA</value>
+					<value>APAC</value>
+					<value>AMER</value>
+					<value>NA</value>
+				</list>
+			</parameter>
+		</constraint>
+	</constraints>
+	<types>
+		<!-- Digital Route Folder Type Derived from cm:folder -->
+		<type name="dr:drBaseFolder">
+			<parent>cm:folder</parent>
+			<properties />
+		</type>
+		<type name="dr:customerFolder">
+			<parent>dr:drBaseFolder</parent>
+			<properties />
+			<mandatory-aspects>
+				<aspect>dr:customerFolderAspect</aspect>
+			</mandatory-aspects>
+		</type>
+		<type name="dr:opportunityFolder">
+			<parent>dr:drBaseFolder</parent>
+			<properties />
+			<mandatory-aspects>
+				<aspect>dr:opportunityFolderAspect</aspect>
+			</mandatory-aspects>
+		</type>
+		<type name="dr:projectFolder">
+			<parent>dr:drBaseFolder</parent>
+			<properties />
+			<mandatory-aspects>
+				<aspect>dr:projectFolderAspect</aspect>
+			</mandatory-aspects>
+		</type>
+		<type name="dr:projectEstimationFolder">
+			<parent>dr:drBaseFolder</parent>
+			<properties />
+		</type>
+		<type name="dr:navigationBoardFolder">
+			<parent>dr:drBaseFolder</parent>
+			<properties />
+			<mandatory-aspects>
+				<aspect>dr:endCustomerAspect</aspect>
+			</mandatory-aspects>
+		</type>
+		<!-- Digital Route Base Content Type Derived from cm:content -->
+		<type name="dr:drBaseContent">
+			<parent>cm:content</parent>
+			<properties />
+			<mandatory-aspects>
+				<aspect>dr:drBaseContentAspect</aspect>
+			</mandatory-aspects>
+		</type>
+		<!-- General Document Content Type -->
+		<type name="dr:generalDocument">
+			<parent>dr:drBaseContent</parent>
+			<properties />
+			<mandatory-aspects>
+				<aspect>dr:generalDocumentSubTypeAspect</aspect>
+			</mandatory-aspects>
+		</type>
+		<!-- Customer Agreement Content Type -->
+		<type name="dr:customerAgreement">
+			<parent>dr:drBaseContent</parent>
+			<properties />
+			<mandatory-aspects>
+				<aspect>dr:customerAgreementSubTypeAspect</aspect>
+				<aspect>dr:customerAgreementAspect</aspect>
+				<aspect>dr:endCustomerAspect</aspect>
+				<aspect>dr:noticeAspect</aspect>
+				<aspect>dr:contractValidAspect</aspect>
+				<aspect>dr:signedAspect</aspect>
+			</mandatory-aspects>
+		</type>
+		<!-- Company Information Content Type -->
+		<type name="dr:companyInformation">
+			<parent>dr:drBaseContent</parent>
+		</type>
+		<!-- Navigation Board Content Type -->
+		<type name="dr:navigationBoard">
+			<parent>dr:drBaseContent</parent>
+			<properties />
+			<mandatory-aspects>
+				<aspect>dr:navigationBoardSubTypeAspect</aspect>
+				<aspect>dr:endCustomerAspect</aspect>
+			</mandatory-aspects>
+		</type>
+		<!-- MZ Documentation Content Type which also have the common attributes 
+			of aspect dr:softwareAspect -->
+		<type name="dr:mzDocumentation">
+			<parent>dr:drBaseContent</parent>
+			<properties />
+			<mandatory-aspects>
+				<aspect>dr:mzDocumentationSubTypeAspect</aspect>
+				<aspect>dr:softwareAspect</aspect>
+			</mandatory-aspects>
+		</type>
+		<!-- Proposal Content Type -->
+		<type name="dr:proposal">
+			<parent>dr:drBaseContent</parent>
+			<properties />
+			<mandatory-aspects>
+				<aspect>dr:endCustomerAspect</aspect>
+				<aspect>dr:contractValidAspect</aspect>
+				<aspect>dr:signedAspect</aspect>
+			</mandatory-aspects>
+		</type>
+		<!-- Purchase Order Content Type -->
+		<type name="dr:purchaseOrder">
+			<parent>dr:drBaseContent</parent>
+			<properties />
+			<mandatory-aspects>
+				<aspect>dr:purchaseOrderAspect</aspect>
+				<aspect>dr:endCustomerAspect</aspect>
+			</mandatory-aspects>
+		</type>
+		<!-- RFX Content Type -->
+		<type name="dr:RFX">
+			<parent>dr:drBaseContent</parent>
+		</type>
+		<!-- SDR Content Type -->
+		<type name="dr:SDR">
+			<parent>dr:drBaseContent</parent>
+			<properties />
+			<mandatory-aspects>
+				<aspect>dr:endCustomerAspect</aspect>
+				<aspect>dr:softwareAspect</aspect>
+			</mandatory-aspects>
+		</type>
+		<!-- Archive Content Type -->
+		<type name="dr:archive">
+			<parent>dr:drBaseContent</parent>
+			<properties />
+			<mandatory-aspects>
+				<aspect>dr:archiveSubTypeAspect</aspect>
+			</mandatory-aspects>
+		</type>
+	</types>
+	<!-- aspects starts -->
+	<aspects>
+		<aspect name="dr:drBaseContentAspect">
+			<properties>
+				<property name="dr:documentId">
+					<type>d:text</type>
+					<mandatory>true</mandatory>
+					<constraints>
+						<constraint ref="dr:documentIdRegEx" />
+					</constraints>
+				</property>
+				<property name="dr:wf">
+					<type>d:text</type>
+					<mandatory>true</mandatory>
+				</property>
+				<property name="dr:wfStatus">
+					<type>d:text</type>
+					<mandatory>true</mandatory>
+					<constraints>
+						<constraint ref="dr:wfStatusOptions" />
+					</constraints>
+				</property>
+				<property name="dr:documentStatus">
+					<type>d:text</type>
+					<mandatory>true</mandatory>
+					<constraints>
+						<constraint ref="dr:documentStatusOptions" />
+					</constraints>
+				</property>
+				<property name="dr:secClassification">
+					<type>d:text</type>
+					<mandatory>true</mandatory>
+					<constraints>
+						<constraint ref="dr:secClassificationOptions" />
+					</constraints>
+				</property>
+			</properties>
+		</aspect>
+		<aspect name="dr:customerAgreementSubTypeAspect">
+			<properties>
+				<property name="dr:customerAgreementSubType">
+					<type>d:text</type>
+					<constraints>
+						<constraint ref="dr:customerAgreementSubTypeOptions" />
+					</constraints>
+				</property>
+			</properties>
+		</aspect>
+		<aspect name="dr:customerAgreementAspect">
+			<properties>
+				<property name="dr:totalInsuranceLiability">
+					<type>d:text</type>
+					<mandatory>true</mandatory>
+				</property>
+				<property name="dr:governingLaw">
+					<type>d:text</type>
+					<mandatory>true</mandatory>
+				</property>
+			</properties>
+		</aspect>
+		<aspect name="dr:generalDocumentSubTypeAspect">
+			<properties>
+				<property name="dr:generalDocumentSubType">
+					<type>d:text</type>
+					<constraints>
+						<constraint ref="dr:generalDocumentSubTypeOptions" />
+					</constraints>
+				</property>
+			</properties>
+		</aspect>
+		<aspect name="dr:navigationBoardSubTypeAspect">
+			<properties>
+				<property name="dr:navigationBoardSubType">
+					<type>d:text</type>
+					<constraints>
+						<constraint ref="dr:navigationBoardSubTypeOptions" />
+					</constraints>
+				</property>
+			</properties>
+		</aspect>
+		<aspect name="dr:mzDocumentationSubTypeAspect">
+			<properties>
+				<property name="dr:mzDocumentationSubType">
+					<type>d:text</type>
+					<constraints>
+						<constraint ref="dr:mzDocumentationSubTypeOptions" />
+					</constraints>
+				</property>
+			</properties>
+		</aspect>
+		<aspect name="dr:softwareAspect">
+			<properties>
+				<property name="dr:softwareName">
+					<type>d:text</type>
+					<mandatory>true</mandatory>
+				</property>
+				<property name="dr:releaseVersion">
+					<type>d:text</type>
+					<mandatory>true</mandatory>
+				</property>
+			</properties>
+		</aspect>
+		<aspect name="dr:endCustomerAspect">
+			<properties>
+				<property name="dr:endCustomer">
+					<type>d:text</type>
+				</property>
+			</properties>
+		</aspect>
+		<aspect name="dr:noticeAspect">
+			<properties>
+				<property name="dr:noticeDate">
+					<type>d:date</type>
+				</property>
+			</properties>
+		</aspect>
+		<aspect name="dr:contractValidAspect">
+			<properties>
+				<property name="dr:validFrom">
+					<type>d:date</type>
+					<mandatory>true</mandatory>
+				</property>
+				<property name="dr:terminationDate">
+					<type>d:date</type>
+				</property>
+			</properties>
+		</aspect>
+		<aspect name="dr:purchaseOrderAspect">
+			<properties>
+				<property name="dr:poNumber">
+					<type>d:text</type>
+					<!-- <constraints> <constraint ref="dr:poNumberConstraint" /> </constraints> -->
+				</property>
+			</properties>
+		</aspect>
+		<aspect name="dr:signedAspect">
+			<properties>
+				<property name="dr:signed">
+					<type>d:text</type>
+					<mandatory>true</mandatory>
+					<constraints>
+						<constraint ref="dr:signedOptions" />
+					</constraints>
+				</property>
+			</properties>
+		</aspect>
+		<aspect name="dr:archiveSubTypeAspect">
+			<properties>
+				<property name="dr:archiveSubType">
+					<type>d:text</type>
+					<constraints>
+						<constraint ref="dr:archiveSubTypeOptions" />
+					</constraints>
+				</property>
+			</properties>
+		</aspect>
+		<aspect name="dr:customerFolderAspect">
+			<properties>
+				<property name="dr:customerNumber">
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<constraints>
+						<constraint ref="dr:customerNumberRegEx" />
+					</constraints>
+				</property>
+				<property name="dr:nameOfCustomer">
+					<type>d:text</type>
+					<mandatory>true</mandatory>
+					<index enabled="true">
+						<atomic>true</atomic>
+						<stored>false</stored>
+						<tokenised>both</tokenised>
+					</index>
+				</property>
+				<property name="dr:region">
+					<type>d:text</type>
+					<mandatory>true</mandatory>
+					<constraints>
+						<constraint ref="dr:regionOptions" />
+					</constraints>
+				</property>
+			</properties>
+		</aspect>
+		<aspect name="dr:projectFolderAspect">
+			<properties>
+				<property name="dr:projectNumber">
+					<type>d:text</type>
+					<mandatory>true</mandatory>
+					<constraints>
+						<constraint ref="dr:projectNumberRegEx" />
+					</constraints>
+				</property>
+				<property name="dr:projectName">
+					<type>d:text</type>
+					<mandatory>true</mandatory>
+					<index enabled="true">
+						<atomic>true</atomic>
+						<stored>false</stored>
+						<tokenised>both</tokenised>
+					</index>
+				</property>
+			</properties>
+		</aspect>
+		<aspect name="dr:opportunityFolderAspect">
+			<properties>
+				<property name="dr:opportunityID">
+					<type>d:text</type>
+					<mandatory>true</mandatory>
+					<constraints>
+						<constraint ref="dr:opportunityIDRegEx" />
+					</constraints>
+				</property>
+				<property name="dr:opportunityName">
+					<type>d:text</type>
+					<mandatory>true</mandatory>
+					<index enabled="true">
+						<atomic>true</atomic>
+						<stored>false</stored>
+						<tokenised>both</tokenised>
+					</index>
+				</property>
+			</properties>
+		</aspect>
+		
+		<aspect name="dr:projectDocumentationAspect">
+			<properties>
+				<property name="dr:projectDocumentation">
+					<type>d:text</type>
+					<mandatory>true</mandatory>
+					<index enabled="true">
+						<atomic>true</atomic>
+						<stored>false</stored>
+						<tokenised>both</tokenised>
+					</index>
+				</property>
+			</properties>
+		</aspect>
+		
+		<aspect name="dr:projectEstimationAspect">
+			<properties>
+				<property name="dr:projectEstimation">
+					<type>d:text</type>
+					<mandatory>true</mandatory>
+					<index enabled="true">
+						<atomic>true</atomic>
+						<stored>false</stored>
+						<tokenised>both</tokenised>
+					</index>
+				</property>
+			</properties>
+		</aspect>
+		
+		
+		<aspect name="dr:documentMetadataUpdatedStatusAspect">
+			<properties>
+				<property name="dr:status">
+					<type>d:boolean</type>
+				</property>
+			</properties>
+		</aspect>
+	</aspects>
+</model>

@@ -1,0 +1,19 @@
+2017-02-03-logg.txt
+cd /data/prodtest/alfrescotst/DMexportpilot/EXPORT
+recode -vf txt..UTF-8 Export.log 
+recode -vf txt..UTF-8 Security.log 
+recode -vf txt..UTF-8 DM_specifik_metadata2.csv 
+
+cd /opt/alfresco/migration
+./migrate.py /data/prodtest/alfrescotst/DMexportpilot/EXPORT /opt/alfresco/alf_data/temp/ \\\\winfs\\data\\prodtest\\alfrescotst\\DMexportpilot\\EXPORT\\ /opt/alfresco/migration/doc_type_mapping.csv > log_2017-02-03_1.log
+
+Skapa site som heter dm-export och gå till dokumentbilbioteket
+Skapa / aktivera användare migreringdm som är admin med lösenord migrering2017
+Gå till http://localhost:8880/alfresco/s/bulk/import och logga in med migreringdm-användaren
+Ange /opt/alfresco/alf_data/temp och /. Starta
+
+När import är klar. Avaktivera konto
+
+
+< &lt;
+> &gt;
